@@ -1,4 +1,4 @@
-//WAP to the sum of all elements in a matrix except diagonal elements
+//WAP to the sum of diagonal elements
 #include <stdio.h>
 int main() {
     int a[10][10], r, c, i, j, sum = 0;
@@ -17,17 +17,17 @@ int main() {
         }
     }
 
-    // 3. Calculate sum of non-diagonal elements
+    // 3. Calculate sum of diagonal elements
     for(i = 0; i < r; i++) {
         for(j = 0; j < c; j++) {
-            if(i != j) { // Check if it's not a diagonal element
+            if(i == j) { // Check if it's a diagonal element
                 sum += a[i][j];
             }
         }
     }
 
     // 4. Print result
-    printf("Sum of non-diagonal elements: %d\n", sum);
+    printf("Sum of diagonal elements: %d\n", sum);
 
     return 0;
 }

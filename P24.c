@@ -1,7 +1,8 @@
-//WAP to the sum of all elements in a matrix except diagonal elements
-#include <stdio.h>
+// wap to find the transpose of a defined matrix in c
+#include <stdio.h>  
 int main() {
-    int a[10][10], r, c, i, j, sum = 0;
+    int a[10][10], transpose[10][10];
+    int r, c, i, j;
 
     // 1. Get size
     printf("Enter rows: ");
@@ -17,17 +18,21 @@ int main() {
         }
     }
 
-    // 3. Calculate sum of non-diagonal elements
+    // 3. Calculate transpose
     for(i = 0; i < r; i++) {
         for(j = 0; j < c; j++) {
-            if(i != j) { // Check if it's not a diagonal element
-                sum += a[i][j];
-            }
+            transpose[j][i] = a[i][j];
         }
     }
 
     // 4. Print result
-    printf("Sum of non-diagonal elements: %d\n", sum);
+    printf("Transpose of the matrix:\n");
+    for(i = 0; i < c; i++) {
+        for(j = 0; j < r; j++) {
+            printf("%d ", transpose[i][j]);
+        }
+        printf("\n");
+    }
 
     return 0;
 }
