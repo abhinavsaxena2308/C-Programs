@@ -1,0 +1,39 @@
+1. WAP to find max & min elements in a 2D-array
+2. WAP to count the frequency of each element in a 2D-array
+3. WAP to convert a Decimal number into Octal number
+4. WAP to convert a Decimal number into Binary number
+5. WAP to convert a Decimal number into Hexadecimal number
+6. WAP to convert a Binary number into Decimal number
+7. WAP to convert a Octal number into Decimal number
+8. WAP to convert a Hexadecimal number into Decimal number
+9. WAP to convert a Binary number into Octal number
+10. WAP to convert a Binary number into Hexadecimal number
+11. WAP to count and display the position of Armstrong number in an array
+12. WAP to separate out +ve, -ve, and 0s in an array
+13. WAP to reverse the array elements
+14. WAP to the sum of integers in an array
+15. WAP to the sum of even numbers in a 2D-array
+16. WAP to print odd numbers in a 2D-array
+17. WAP to find the sum and average of all the elements in a 2D-array
+18. WAP to search for a number in an array
+19. WAP to sort array in ascending order
+20. WAP to display prime number in an array
+21. WAP to the sum of two matrices
+22. WAP to the sum of all elements in a matrix except diagonal elements
+23. WAP to the sum of diagonal elements
+24. WAP to find the transpose of a matrix
+25. WAP to the sum of middle row & column
+26. WAP to find the difference between two matrices
+27. WAP to the sum of lower triangular elements
+28. WAP to the sum of upper triangular elements
+29. WAP to display the pattern given here.
+1
+21
+321
+4321
+54321
+30. WAP to display the pattern given here.
+*
+***
+*****
+*******
