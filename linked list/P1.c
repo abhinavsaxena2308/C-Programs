@@ -1,52 +1,72 @@
+// 1. Given two sorted Linked Lists, how to merge them into the third list in sorted order?
 #include <stdio.h>
 #include <stdlib.h>
 
-// node structure
 struct node {
     int data;
-    struct node* next;
+    struct node *next;
 };
 
-// create a new node
-struct node* create(int val) {
-    struct node* temp = (struct node*)malloc(sizeof(struct node));
-    temp->data = val;
-    temp->next = NULL;
-    return temp;
+struct node* insert(struct node* head, int val) {
+    struct node* newNode = (struct node*)malloc(sizeof(struct node));
+    newNode->data = val;
+    newNode->next = NULL;
+    if (head == NULL) return newNode;
+    struct node* temp = head;
+    while (temp->next != NULL) temp = temp->next;
+    temp->next = newNode;
+    return head;
 }
 
-// function to check for loop
-int checkLoop(struct node* head) {
-    struct node *s = head; // slow pointer
-    struct node *f = head; // fast pointer
-
-    while (s != NULL && f != NULL && f->next != NULL) {
-        s = s->next;      // moves 1 step
-        f = f->next->next; // moves 2 steps
-
-        // if they meet, loop is there
-        if (s == f) {
-            return 1;
-        }
+void display(struct node* head) {
+    struct node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
     }
-    return 0;
+    printf("NULL\n");
+}
+
+struct node* mergeLists(struct node* h1, struct node* h2) {
+    struct node* dummy = (struct node*)malloc(sizeof(struct node));
+    dummy->data = -1;
+    dummy->next = NULL;
+    struct node* temp = dummy;
+
+    while (h1 != NULL && h2 != NULL) {
+        if (h1->data < h2->data) {
+            temp->next = h1;
+            h1 = h1->next;
+        } else {
+            temp->next = h2;
+            h2 = h2->next;
+        }
+        temp = temp->next;
+    }
+    
+    if (h1 != NULL) temp->next = h1;
+    if (h2 != NULL) temp->next = h2;
+
+    return dummy->next;
 }
 
 int main() {
-    struct node* head = create(10);
-    head->next = create(20);
-    head->next->next = create(30);
-    head->next->next->next = create(40);
+    struct node* head1 = NULL;
+    struct node* head2 = NULL;
 
-    // making a loop: 40 points back to 20
-    head->next->next->next->next = head->next;
+    head1 = insert(head1, 10);
+    head1 = insert(head1, 20);
+    head1 = insert(head1, 40);
 
-    if (checkLoop(head)) {
-        printf("Loop detected in the list!\n");
-    } else {
-        printf("No loop found.\n");
-    }
+    head2 = insert(head2, 15);
+    head2 = insert(head2, 25);
+    head2 = insert(head2, 35);
+
+    printf("List 1: "); display(head1);
+    printf("List 2: "); display(head2);
+
+    struct node* mergedHead = mergeLists(head1, head2);
+    printf("Merged List: "); display(mergedHead);
 
     return 0;
 }
-
