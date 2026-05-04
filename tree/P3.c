@@ -1,4 +1,3 @@
-// Give an algorithm for finding the number of half nodes (nodes with only one child) in the binary tree without using recursion.
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -17,7 +16,7 @@ struct node* newNode(int data) {
     return temp;
 }
 
-// Iterative function to count half nodes using a queue (Level Order Traversal)
+// iterative function to count half nodes using a queue (Level Order Traversal)
 int countHalfNodes(struct node* root) {
     if (root == NULL) return 0;
 
@@ -48,14 +47,6 @@ int countHalfNodes(struct node* root) {
 }
 
 int main() {
-    // creating a sample tree
-    /*
-            1
-           / \
-          2   3
-         /
-        4
-    */
     struct node* root = newNode(1);
     root->left = newNode(2);
     root->right = newNode(3);

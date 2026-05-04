@@ -1,11 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 // Write a program to count:
 // Total nodes
 // Leaf nodes
 // Internal nodes
 // Find height of a binary tree.
+#include <stdio.h>
+#include <stdlib.h>
 
 struct node {
     int data;
@@ -18,6 +17,16 @@ struct node* newNode(int val) {
     temp->data = val;
     temp->left = temp->right = NULL;
     return temp;
+}
+
+// function to insert in BST
+struct node* insert(struct node* node, int data) {
+    if (node == NULL) return newNode(data);
+    if (data < node->data)
+        node->left = insert(node->left, data);
+    else
+        node->right = insert(node->right, data);
+    return node;
 }
 
 // 1. Total Nodes
@@ -38,7 +47,6 @@ int countInternal(struct node* root) {
     if (root == NULL || (root->left == NULL && root->right == NULL)) return 0;
     return 1 + countInternal(root->left) + countInternal(root->right);
 }
-
 // 4. Height of Tree
 int findHeight(struct node* root) {
     if (root == NULL) return 0;
@@ -46,20 +54,16 @@ int findHeight(struct node* root) {
     int rightH = findHeight(root->right);
     return (leftH > rightH ? leftH : rightH) + 1;
 }
-
 int main() {
-    /*
-            1
-           / \
-          2   3
-         / \
-        4   5
-    */
-    struct node* root = newNode(1);
-    root->left = newNode(2);
-    root->right = newNode(3);
-    root->left->left = newNode(4);
-    root->left->right = newNode(5);
+    struct node* root = NULL;
+    int n, val;
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++) {
+        printf("Enter value %d: ", i + 1);
+        scanf("%d", &val);
+        root = insert(root, val);
+    }
 
     printf("Total Nodes: %d\n", countNodes(root));
     printf("Leaf Nodes: %d\n", countLeaf(root));

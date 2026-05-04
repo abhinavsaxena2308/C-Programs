@@ -1,39 +1,27 @@
 // Write a program to create and traverse a binary tree.
 #include <stdio.h>
 #include <stdlib.h>
-
-// node structure
-struct node {
+struct node {               // node structure
     int data;
     struct node* left;
     struct node* right;
 };
-
-// function to create a binary tree
-struct node* create() {
+struct node* create() {    // function to create a binary tree
     int x;
     struct node* newNode;
     newNode = (struct node*)malloc(sizeof(struct node));
-
     printf("Enter data (-1 for no node): ");
     scanf("%d", &x);
-
-    // base case for recursion
-    if (x == -1) {
+    if (x == -1) {             // base case for recursion
         return NULL;
     }
-
     newNode->data = x;
-
     printf("Enter left child of %d:\n", x);
     newNode->left = create();
-
     printf("Enter right child of %d:\n", x);
     newNode->right = create();
-
     return newNode;
 }
-
 // Inorder traversal (Left, Root, Right)
 void inorder(struct node* root) {
     if (root == NULL) return;
@@ -60,19 +48,14 @@ void postorder(struct node* root) {
 
 int main() {
     struct node* root;
-
     printf("Create your Binary Tree:\n");
     root = create();
-
     printf("\nInorder traversal: ");
     inorder(root);
-
     printf("\nPreorder traversal: ");
     preorder(root);
-
     printf("\nPostorder traversal: ");
     postorder(root);
-
     printf("\n");
     return 0;
 }

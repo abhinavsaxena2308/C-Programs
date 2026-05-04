@@ -37,15 +37,14 @@ void inorder(struct node* root) {
 
 int main() {
     struct node* root = NULL;
-
-    // creating a BST
-    root = insert(root, 40);
-    insert(root, 20);
-    insert(root, 60);
-    insert(root, 10);
-    insert(root, 30);
-    insert(root, 50);
-    insert(root, 70);
+    int n, val;
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++) {
+        printf("Enter value %d: ", i + 1);
+        scanf("%d", &val);
+        root = insert(root, val);
+    }
 
     printf("BST elements in sorted order (Inorder): ");
     inorder(root);

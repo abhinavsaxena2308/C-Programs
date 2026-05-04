@@ -1,15 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-//Implement Binary Search Tree insertion. 
-// Implement search operation in BST. 
-// Implement deletion in BST.
-
 struct node {
     int data;
     struct node *left, *right;
 };
-
 // create a new node
 struct node* newNode(int val) {
     struct node* temp = (struct node*)malloc(sizeof(struct node));
@@ -17,8 +11,7 @@ struct node* newNode(int val) {
     temp->left = temp->right = NULL;
     return temp;
 }
-
-// 1. Insertion in BST
+// 1. insertion in BST
 struct node* insert(struct node* root, int val) {
     if (root == NULL) return newNode(val);
 
@@ -29,8 +22,7 @@ struct node* insert(struct node* root, int val) {
 
     return root;
 }
-
-// 2. Search operation
+// 2. search operation
 struct node* search(struct node* root, int key) {
     if (root == NULL || root->data == key)
         return root;
@@ -84,7 +76,6 @@ void inorder(struct node* root) {
         inorder(root->right);
     }
 }
-
 int main() {
     struct node* root = NULL;
     root = insert(root, 50);
@@ -94,28 +85,22 @@ int main() {
     insert(root, 70);
     insert(root, 60);
     insert(root, 80);
-
     printf("Inorder traversal: ");
     inorder(root);
-
     printf("\n\nSearching for 40: ");
     if (search(root, 40)) printf("Found\n"); else printf("Not Found\n");
-
     printf("\nDeleting 20\n");
     root = deleteNode(root, 20);
     printf("Inorder traversal: ");
     inorder(root);
-
     printf("\n\nDeleting 30\n");
     root = deleteNode(root, 30);
     printf("Inorder traversal: ");
     inorder(root);
-
     printf("\n\nDeleting 50\n");
     root = deleteNode(root, 50);
     printf("Inorder traversal: ");
     inorder(root);
-
     printf("\n");
     return 0;
 }

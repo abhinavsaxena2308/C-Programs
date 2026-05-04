@@ -50,22 +50,12 @@ int findMaxSumLevel(struct node* root) {
     }
     return max_level;
 }
-
 int main() {
-    /*
-            1        (Level 1, sum=1)
-           / \
-          10  3      (Level 2, sum=13)
-         /  \
-        4    5       (Level 3, sum=9)
-    */
     struct node* root = newNode(1);
     root->left = newNode(10);
     root->right = newNode(3);
     root->left->left = newNode(4);
     root->left->right = newNode(5);
-
     printf("Level with maximum sum is: %d\n", findMaxSumLevel(root));
-
     return 0;
 }

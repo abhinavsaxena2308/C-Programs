@@ -1,34 +1,26 @@
 // Implement menu driven program: Preorder traversal, Inorder traversal, and Postorder traversal
 #include <stdio.h>
 #include <stdlib.h>
-
 // node structure
 struct node {
     int data;
     struct node* left;
     struct node* right;
 };
-
 // function to create the tree
 struct node* create() {
     int x;
     printf("Enter data (-1 for no node): ");
     scanf("%d", &x);
-
     if (x == -1) return NULL;
-
     struct node* newNode = (struct node*)malloc(sizeof(struct node));
     newNode->data = x;
-
     printf("Enter left child of %d:\n", x);
     newNode->left = create();
-
     printf("Enter right child of %d:\n", x);
     newNode->right = create();
-
     return newNode;
 }
-
 // Preorder: Root -> Left -> Right
 void preorder(struct node* root) {
     if (root == NULL) return;
