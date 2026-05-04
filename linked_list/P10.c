@@ -1,12 +1,11 @@
-// 10. Split a Circular Linked List into two equal parts. If the number of nodes in the list are odd then make first list one node extra than second list.
+// 10. Split a Circular Linked List into two equal parts. 
+// If the number of nodes in the list are odd then make first list one node extra than second list.
 #include <stdio.h>
 #include <stdlib.h>
-
 struct node {
     int data;
     struct node *next;
 };
-
 struct node* insertEnd(struct node* head, int val) {
     struct node* newNode = (struct node*)malloc(sizeof(struct node));
     newNode->data = val;
@@ -22,7 +21,6 @@ struct node* insertEnd(struct node* head, int val) {
     newNode->next = head;
     return head;
 }
-
 void display(struct node* head) {
     if (head == NULL) return;
     struct node* temp = head;

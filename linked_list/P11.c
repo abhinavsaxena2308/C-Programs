@@ -27,6 +27,13 @@ int isPalindrome(struct node* head) {
         arr[i++] = temp->data;
         temp = temp->next;
     }
+
+    printf("Array representation: [");
+    for (j = 0; j < i; j++) {
+        printf("%d", arr[j]);
+        if (j < i - 1) printf(", ");
+    }
+    printf("]\n");
     
     for (j = 0; j < i / 2; j++) {
         if (arr[j] != arr[i - j - 1]) {
@@ -38,11 +45,22 @@ int isPalindrome(struct node* head) {
 
 int main() {
     struct node* head = NULL;
-    head = insertEnd(head, 1);
-    head = insertEnd(head, 2);
-    head = insertEnd(head, 3);
-    head = insertEnd(head, 2);
-    head = insertEnd(head, 1);
+    int n, val, i;
+
+    printf("Enter the number of nodes: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid number of nodes.\n");
+        return 1;
+    }
+
+    printf("Enter %d integer values:\n", n);
+    for (i = 0; i < n; i++) {
+        if (scanf("%d", &val) != 1) {
+            printf("Invalid input.\n");
+            return 1;
+        }
+        head = insertEnd(head, val);
+    }
 
     if (isPalindrome(head)) {
         printf("The linked list is a palindrome.\n");
