@@ -1,6 +1,6 @@
-#include <stdio.h>
-
 // recursive function to find gcd
+
+#include <stdio.h>
 int findGCD(int a, int b) {
     if (b == 0) {
         return a;
@@ -20,3 +20,4 @@ int main() {
 
     return 0;
 }
+

@@ -1,6 +1,6 @@
-#include <stdio.h>
-
 // recursive function to find sum of digits
+
+#include <stdio.h>
 int sumOfDigits(int n) {
     if (n == 0) {
         return 0;
@@ -20,3 +20,6 @@ int main() {
 
     return 0;
 }
+
+
+

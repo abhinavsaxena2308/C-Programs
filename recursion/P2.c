@@ -1,34 +1,25 @@
+// recursive function to reverse the string
+
 #include <stdio.h>
 #include <string.h>
 
-// recursive function to reverse the string
 void reverse(char str[], int start, int end) {
     char temp;
     if (start >= end) {
         return;
     }
-
-    // swapping logic
-    temp = str[start];
+    temp = str[start];  // swapping logic
     str[start] = str[end];
     str[end] = temp;
-
-    // recursive call
-    reverse(str, start + 1, end - 1);
+    reverse(str, start + 1, end - 1); // recursive call
 }
 
 int main() {
     char str[100];
-
     printf("Enter a string to reverse: ");
-    scanf("%s", str); // taking input
-
+    scanf("%s", str);       // taking input
     int len = strlen(str);
-
-    // calling the function
-    reverse(str, 0, len - 1);
-
+    reverse(str, 0, len - 1);      //// calling the function
     printf("The reversed string is: %s\n", str);
-
     return 0;
 }

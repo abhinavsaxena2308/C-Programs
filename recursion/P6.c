@@ -1,6 +1,6 @@
-#include <stdio.h>
-
 // recursive function to solve Tower of Hanoi
+
+#include <stdio.h>
 void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) {
     if (n == 1) {
         printf("Move disk 1 from rod %c to rod %c\n", from_rod, to_rod);
@@ -8,7 +8,6 @@ void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) {
     }
     // move n-1 disks from source to aux
     towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
-    
     printf("Move disk %d from rod %c to rod %c\n", n, from_rod, to_rod);
     
     // move n-1 disks from aux to destination
@@ -17,12 +16,8 @@ void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) {
 
 int main() {
     int n;
-
     printf("Enter the number of disks: ");
     scanf("%d", &n);
-
-    // rods are named A, B, and C
-    towerOfHanoi(n, 'A', 'C', 'B');
-
+    towerOfHanoi(n, 'A', 'C', 'B');     // rods are named A, B, and C
     return 0;
 }

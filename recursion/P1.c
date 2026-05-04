@@ -1,10 +1,10 @@
 //Write a recursive program to find the nth Fibonacci number
 #include <stdio.h>
-int fibonacci(int n) {
+int fib(int n) {
     if (n <= 1) {
         return n;
     }
-    return fibonacci(n - 1) + fibonacci(n - 2);
+    return fib(n - 1) + fib(n - 2);
 }
 
 int main() {
@@ -18,7 +18,7 @@ int main() {
     if (n < 0) {
         printf("Fibonacci sequence is not defined for negative indices.\n");
     } else {
-        printf("The %d-th Fibonacci number is: %d\n", n, fibonacci(n));
+        printf("The %d-th Fibonacci number is: %d\n", n, fib(n));
     }
 
     return 0;
