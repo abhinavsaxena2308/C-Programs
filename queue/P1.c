@@ -1,5 +1,5 @@
-#include <stdio.h>
 //Implement circular queue using arrays.
+#include <stdio.h>
 #define MAX 5
 
 int queue[MAX];

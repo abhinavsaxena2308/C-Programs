@@ -1,8 +1,6 @@
 // Interleave first half of a queue with second half.
 #include <stdio.h>
-
 #define MAX 20
-
 int queue[MAX];
 int front = -1, rear = -1;
 
@@ -20,34 +18,33 @@ int dequeue() {
     else front++;
     return val;
 }
-
 // function to interleave
 void interleave(int n) {
     int stack[MAX];
     int top = -1;
     int half = n / 2;
 
-    // 1. Push first half into stack
+    // 1. push first half into stack
     for (int i = 0; i < half; i++) {
         stack[++top] = dequeue();
     }
 
-    // 2. Enqueue from stack back into queue
+    // 2. enqueue from stack back into queue
     while (top != -1) {
         enqueue(stack[top--]);
     }
 
-    // 3. Dequeue first half and enqueue back
+    // 3. dequeue first half and enqueue back
     for (int i = 0; i < half; i++) {
         enqueue(dequeue());
     }
 
-    // 4. Push first half into stack again
+    // 4. push first half into stack again
     for (int i = 0; i < half; i++) {
         stack[++top] = dequeue();
     }
 
-    // 5. Interleave
+    // 5. interleave
     while (top != -1) {
         enqueue(stack[top--]);
         enqueue(dequeue());
@@ -68,14 +65,10 @@ int main() {
     enqueue(2);
     enqueue(3);
     enqueue(4);
-
     printf("Original Queue: ");
     display();
-
     interleave(n);
-
     printf("Interleaved Queue: ");
     display();
-
     return 0;
 }

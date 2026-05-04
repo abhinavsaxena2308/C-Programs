@@ -9,19 +9,15 @@ int top1 = -1, top2 = -1;
 void push1(int val) {
     stack1[++top1] = val;
 }
-
 void push2(int val) {
     stack2[++top2] = val;
 }
-
 int pop1() {
     return stack1[top1--];
 }
-
 int pop2() {
     return stack2[top2--];
 }
-
 // enqueue: always push to stack 1
 void enqueue(int val) {
     if (top1 == MAX - 1) {
@@ -53,14 +49,10 @@ int main() {
     enqueue(10);
     enqueue(20);
     enqueue(30);
-
     dequeue();
     dequeue();
-
     enqueue(40);
-
     dequeue();
     dequeue();
-
     return 0;
 }

@@ -1,18 +1,13 @@
-// Write a program to reverse a queue without using another queue.
 #include <stdio.h>
-
 #define MAX 10
-
 int queue[MAX];
 int front = -1, rear = -1;
-
 // simple enqueue
 void enqueue(int val) {
     if (rear == MAX - 1) return;
     if (front == -1) front = 0;
     queue[++rear] = val;
 }
-
 // simple dequeue
 int dequeue() {
     int val = queue[front];
@@ -20,20 +15,16 @@ int dequeue() {
     else front++;
     return val;
 }
-
 // recursive function to reverse the queue
 void reverseQueue() {
     // base case: if queue is empty
     if (front == -1) {
         return;
     }
-
     // dequeue the front element
     int data = dequeue();
-
     // recursively call for rest of the queue
     reverseQueue();
-
     // enqueue the element back (will be in reverse order)
     enqueue(data);
 }
@@ -66,3 +57,5 @@ int main() {
 
     return 0;
 }
+
+

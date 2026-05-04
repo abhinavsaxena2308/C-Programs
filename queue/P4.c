@@ -18,13 +18,11 @@ int popQ1() {
     else f1++;
     return val;
 }
-
 // queue 2 operations
 void pushQ2(int val) {
     if (f2 == -1) f2 = 0;
     q2[++r2] = val;
 }
-
 int popQ2() {
     int val = q2[f2];
     if (f2 == r2) f2 = r2 = -1;
@@ -34,43 +32,31 @@ int popQ2() {
 
 // stack push: O(n) method to keep pop at O(1)
 void push(int val) {
-    // 1. push to empty q2
-    pushQ2(val);
-
-    // 2. move all from q1 to q2
-    while (f1 != -1) {
+    pushQ2(val);            // 1. push to empty q2
+    while (f1 != -1) {      // 2. move all from q1 to q2
         pushQ2(popQ1());
     }
-
-    // 3. swap q1 and q2 (move everything back to q1)
-    while (f2 != -1) {
+    while (f2 != -1) {      // 3. swap q1 and q2 (move everything back to q1)
         pushQ1(popQ2());
     }
     printf("Pushed %d onto stack\n", val);
 }
-
-// stack pop
-void pop() {
+void pop() {                // stack pop
     if (f1 == -1) {
         printf("Stack Empty!\n");
         return;
     }
     printf("Popped %d from stack\n", popQ1());
 }
-
 int main() {
     push(10);
     push(20);
     push(30);
-
     pop();
     pop();
-
     push(40);
-
     pop();
     pop();
     pop();
-
     return 0;
 }

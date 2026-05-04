@@ -1,7 +1,5 @@
 #include <stdio.h>
-
 #define MAX 10
-//Simulate Round Robin CPU Scheduling using queue.
 // structure for process
 struct Process {
     int id;
@@ -28,13 +26,11 @@ struct Process dequeue() {
 
 int main() {
     int n, quantum, i;
-    
+
     printf("Enter number of processes: ");
     scanf("%d", &n);
-    
     printf("Enter time quantum: ");
     scanf("%d", &quantum);
-
     for (i = 0; i < n; i++) {
         struct Process p;
         p.id = i + 1;
@@ -43,7 +39,6 @@ int main() {
         p.remaining_time = p.burst_time;
         enqueue(p);
     }
-
     printf("\nRound Robin Scheduling Simulation:\n");
     while (front != -1) {
         struct Process p = dequeue();
@@ -57,6 +52,5 @@ int main() {
             p.remaining_time = 0;
         }
     }
-
     return 0;
 }
