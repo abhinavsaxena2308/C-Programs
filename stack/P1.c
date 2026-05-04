@@ -1,13 +1,12 @@
+//Write a program to implement a stack using a linked list.
 #include <stdio.h>
 #include <stdlib.h>
 
-//Write a program to implement a stack using a linked list.
 // structure for node
 struct node {
     int data;
     struct node* next;
 };
-
 struct node* top = NULL; // global top pointer
 
 // function to push element

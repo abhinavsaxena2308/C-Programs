@@ -1,35 +1,28 @@
 // Write a program to implement a stack that returns the minimum element in O(1) time.
 #include <stdio.h>
-
 #define MAX 100
-
 int mainStack[MAX];
 int minStack[MAX];
 int top = -1;
 int minTop = -1;
-
 // push function
 void push(int val) {
     if (top == MAX - 1) {
         printf("Stack Overflow\n");
         return;
     }
-    
-    mainStack[++top] = val;
-
+        mainStack[++top] = val;
     // if minStack is empty or new value is smaller, push to minStack
     if (minTop == -1 || val <= minStack[minTop]) {
         minStack[++minTop] = val;
     }
 }
-
 // pop function
 void pop() {
     if (top == -1) {
         printf("Stack Underflow\n");
         return;
     }
-
     // if the value being popped is the minimum, pop from minStack too
     if (mainStack[top] == minStack[minTop]) {
         minTop--;

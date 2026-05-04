@@ -48,7 +48,7 @@ int main() {
     push1(5);
     push2(6);
 
-    // this should cause overflow since MAX is 10
+    // this should result in overflow since MAX is 10
     push1(100); 
 
     return 0;

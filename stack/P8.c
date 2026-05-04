@@ -49,11 +49,9 @@ int main() {
     // testing stack 1
     push1(10);
     push1(20);
-    
     // testing stack 2
     push2(100);
     push2(200);
-    
     pop1();
     pop2();
     

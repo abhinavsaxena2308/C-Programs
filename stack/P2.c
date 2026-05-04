@@ -1,7 +1,7 @@
+//Write a program to convert an infix expression to postfix.
 #include <stdio.h>
 #include <ctype.h>
 
-//Write a program to convert an infix expression to postfix.
 char stack[100];
 int top = -1;
 

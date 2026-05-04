@@ -30,7 +30,6 @@ int popTemp() {
 
 int main() {
     int n, val, i;
-
     printf("How many elements in stack 1? ");
     scanf("%d", &n);
 
@@ -40,13 +39,12 @@ int main() {
         push1(val);
     }
 
-    // to keep the same order, we use a temporary stack
-    // Step 1: Pop from stack1 and push to temp
+    // popping from stack1 and push to temp
     while (top1 != -1) {
         pushTemp(pop1());
     }
 
-    // Step 2: Pop from temp and push to stack2
+    // popping from temp and push to stack2
     while (topTemp != -1) {
         push2(popTemp());
     }

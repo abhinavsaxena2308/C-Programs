@@ -1,7 +1,7 @@
+//Write a program to evaluate a postfix expression using a stack.
 #include <stdio.h>
 #include <ctype.h>
 
-//Write a program to evaluate a postfix expression using a stack.
 int stack[100];
 int top = -1;
 
@@ -51,8 +51,6 @@ int main() {
         }
         e++;
     }
-
     printf("The result of expression is: %d\n", pop());
-
     return 0;
 }
