@@ -1,4 +1,3 @@
-// Simulate CPU Job Scheduling using a priority queue. Each process has: Process ID, Burst Time, Priority. Execute highest-priority first
 #include <stdio.h>
 
 // structure for a CPU process

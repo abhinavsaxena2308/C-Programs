@@ -1,15 +1,6 @@
-// [ignoring loop detection]
 // Implement a priority queue using: Array, Linked List, Heap. Compare performance.
 #include <stdio.h>
 #include <stdlib.h>
-
-/*
-    PERFORMANCE SUMMARY:
-    - Array (Unsorted): Push is O(1), Pop is O(N) because we must search for the max element.
-    - Linked List (Sorted): Push is O(N) to keep it sorted, Pop is O(1) from the head.
-    - Binary Heap: Push is O(log N) and Pop is O(log N). This is the best overall balance.
-*/
-
 // --- 1. UNSORTED ARRAY ---
 int q_arr[50], q_size = 0;
 void arr_push(int val) { q_arr[q_size++] = val; }
@@ -20,7 +11,6 @@ int arr_pop() {
     q_arr[max_idx] = q_arr[--q_size];
     return val;
 }
-
 // --- 2. SORTED LINKED LIST ---
 struct Node { int data; struct Node* next; };
 struct Node* list_head = NULL;
@@ -44,7 +34,6 @@ int list_pop() {
     free(t);
     return v;
 }
-
 // --- 3. MAX HEAP ---
 int heap[50], heap_size = 0;
 void heap_push(int val) {

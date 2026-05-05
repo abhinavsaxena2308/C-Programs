@@ -37,17 +37,7 @@ int evaluate(struct node* root) {
 }
 
 int main() {
-    /* 
-       Let's manually build the tree for (5+3)*(8-2)
-              *
-           /    \
-          +      -
-         / \    / \
-        5   3  8   2
-    */
-
-    struct node* root = newNode('*');
-    
+        struct node* root = newNode('*');
     root->left = newNode('+');
     root->left->left = newNode('5');
     root->left->right = newNode('3');

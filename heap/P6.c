@@ -1,7 +1,5 @@
-// Implement hash table using: Separate Chaining with: h(k)=k mod 10. Insert: 12, 22, 42, 17, 27. Display final table.
 #include <stdio.h>
 #include <stdlib.h>
-
 #define SIZE 10
 
 // node structure for the linked list in each bucket
@@ -9,24 +7,19 @@ struct Node {
     int data;
     struct Node* next;
 };
-
 // our hash table (array of Node pointers)
 struct Node* chain[SIZE];
-
 // hash function
 int hash(int key) {
     return key % SIZE;
 }
-
 // function to insert into hash table
 void insert(int key) {
     int index = hash(key);
-
     // create a new node
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = key;
     newNode->next = NULL;
-
     // Separate Chaining: Insert at the beginning of the list
     if (chain[index] == NULL) {
         chain[index] = newNode;
@@ -35,7 +28,6 @@ void insert(int key) {
         chain[index] = newNode;
     }
 }
-
 // display the entire hash table
 void display() {
     printf("\n--- Hash Table (Separate Chaining) ---\n");
